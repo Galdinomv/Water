@@ -1,0 +1,275 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls   s/call   s/call  name    
+ 67.39     40.72    40.72 17452602     0.00     0.00  CSHIFT(double*, double*, double, double, double*, double, double)
+ 13.90     49.13     8.40      303     0.03     0.10  INTERF(int, unsigned int)
+ 13.07     57.03     7.90      273     0.03     0.10  POTENG(tm_type<double, 1>*, tm_type<double, 1>*, tm_type<double, 1>*, unsigned int)
+  3.77     59.30     2.28   689821     0.00     0.00  UPDATE_FORCES(tm_link*, int, double*, double*, double*, double*)
+  0.61     59.67     0.37      389     0.00     0.00  PREDIC(double*, int, unsigned int)
+  0.56     60.01     0.34  8528163     0.00     0.00  tm_type<tm_link*, 1>::operator tm_link*() const
+  0.30     60.19     0.18      148     0.00     0.00  CORREC(int, unsigned int)
+  0.17     60.29     0.10      278     0.00     0.00  INTRAF(unsigned int)
+  0.17     60.39     0.10        1     0.10     0.10  CNSTNT(int, double*)
+  0.07     60.43     0.04      145     0.00     0.00  BNDRY(unsigned int)
+  0.01     60.44     0.01        1     0.01     0.01  INITIA()
+  0.00     60.44     0.00     4512     0.00     0.00  tm_type<double, 1>::operator double() const
+  0.00     60.44     0.00     1779     0.00     0.00  pthread_barrier(int)
+  0.00     60.44     0.00     1733     0.00     0.00  tm_type<double, 1>::operator=(double const&)
+  0.00     60.44     0.00     1088     0.00     0.00  tm_type<tm_link*, 1>::operator=(tm_link* const&)
+  0.00     60.44     0.00      410     0.00     0.00  tm_type<double, 1>::operator+=(double const&)
+  0.00     60.44     0.00       26     0.00     0.00  KINETI(tm_type<double, 1>*, double, double, unsigned int)
+  0.00     60.44     0.00        7     0.00     0.00  tm_type<double, 1>::tm_type()
+  0.00     60.44     0.00        4     0.00    15.08  MDMAIN(int, int, int, int, int, int, int, int, unsigned int)
+  0.00     60.44     0.00        1     0.00     0.00  SYSCNS()
+  0.00     60.44     0.00        1     0.00     0.00  GlobalMemory::GlobalMemory()
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+ 
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this 
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 0.02% of 60.44 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]     99.8    0.00   60.34                 thread_work(void*) [1]
+                0.00   60.33       4/4           MDMAIN(int, int, int, int, int, int, int, int, unsigned int) [2]
+                0.01    0.00       1/1           INITIA() [14]
+                0.00    0.00      64/1088        tm_type<tm_link*, 1>::operator=(tm_link* const&) [29]
+                0.00    0.00      16/1779        pthread_barrier(int) [27]
+                0.00    0.00       1/1           GlobalMemory::GlobalMemory() [33]
+-----------------------------------------------
+                0.00   60.33       4/4           thread_work(void*) [1]
+[2]     99.8    0.00   60.33       4         MDMAIN(int, int, int, int, int, int, int, int, unsigned int) [2]
+                8.40   23.30     303/303         INTERF(int, unsigned int) [4]
+                7.90   20.04     273/273         POTENG(tm_type<double, 1>*, tm_type<double, 1>*, tm_type<double, 1>*, unsigned int) [5]
+                0.37    0.00     389/389         PREDIC(double*, int, unsigned int) [7]
+                0.18    0.00     148/148         CORREC(int, unsigned int) [9]
+                0.10    0.00     278/278         INTRAF(unsigned int) [10]
+                0.04    0.00     145/145         BNDRY(unsigned int) [13]
+                0.00    0.00      26/26          KINETI(tm_type<double, 1>*, double, double, unsigned int) [15]
+                0.00    0.00    3452/4512        tm_type<double, 1>::operator double() const [26]
+                0.00    0.00    1512/1779        pthread_barrier(int) [27]
+                0.00    0.00     700/1733        tm_type<double, 1>::operator=(double const&) [28]
+-----------------------------------------------
+               19.87    0.00 8516401/17452602     POTENG(tm_type<double, 1>*, tm_type<double, 1>*, tm_type<double, 1>*, unsigned int) [5]
+               20.85    0.00 8936201/17452602     INTERF(int, unsigned int) [4]
+[3]     67.4   40.72    0.00 17452602         CSHIFT(double*, double*, double, double, double*, double, double) [3]
+-----------------------------------------------
+                8.40   23.30     303/303         MDMAIN(int, int, int, int, int, int, int, int, unsigned int) [2]
+[4]     52.4    8.40   23.30     303         INTERF(int, unsigned int) [4]
+               20.85    0.00 8936201/17452602     CSHIFT(double*, double*, double, double, double*, double, double) [3]
+                2.28    0.00  689821/689821      UPDATE_FORCES(tm_link*, int, double*, double*, double*, double*) [6]
+                0.17    0.00 4214742/8528163     tm_type<tm_link*, 1>::operator tm_link*() const [8]
+                0.00    0.00     251/1779        pthread_barrier(int) [27]
+                0.00    0.00     225/410         tm_type<double, 1>::operator+=(double const&) [30]
+-----------------------------------------------
+                7.90   20.04     273/273         MDMAIN(int, int, int, int, int, int, int, int, unsigned int) [2]
+[5]     46.2    7.90   20.04     273         POTENG(tm_type<double, 1>*, tm_type<double, 1>*, tm_type<double, 1>*, unsigned int) [5]
+               19.87    0.00 8516401/17452602     CSHIFT(double*, double*, double, double, double*, double, double) [3]
+                0.17    0.00 4142291/8528163     tm_type<tm_link*, 1>::operator tm_link*() const [8]
+                0.00    0.00     726/4512        tm_type<double, 1>::operator double() const [26]
+                0.00    0.00     701/1733        tm_type<double, 1>::operator=(double const&) [28]
+-----------------------------------------------
+                2.28    0.00  689821/689821      INTERF(int, unsigned int) [4]
+[6]      3.8    2.28    0.00  689821         UPDATE_FORCES(tm_link*, int, double*, double*, double*, double*) [6]
+-----------------------------------------------
+                0.37    0.00     389/389         MDMAIN(int, int, int, int, int, int, int, int, unsigned int) [2]
+[7]      0.6    0.37    0.00     389         PREDIC(double*, int, unsigned int) [7]
+                0.00    0.00   50523/8528163     tm_type<tm_link*, 1>::operator tm_link*() const [8]
+-----------------------------------------------
+                0.00    0.00    3456/8528163     INITIA() [14]
+                0.00    0.00    7038/8528163     BNDRY(unsigned int) [13]
+                0.00    0.00   31740/8528163     KINETI(tm_type<double, 1>*, double, double, unsigned int) [15]
+                0.00    0.00   36252/8528163     CORREC(int, unsigned int) [9]
+                0.00    0.00   42121/8528163     INTRAF(unsigned int) [10]
+                0.00    0.00   50523/8528163     PREDIC(double*, int, unsigned int) [7]
+                0.17    0.00 4142291/8528163     POTENG(tm_type<double, 1>*, tm_type<double, 1>*, tm_type<double, 1>*, unsigned int) [5]
+                0.17    0.00 4214742/8528163     INTERF(int, unsigned int) [4]
+[8]      0.6    0.34    0.00 8528163         tm_type<tm_link*, 1>::operator tm_link*() const [8]
+-----------------------------------------------
+                0.18    0.00     148/148         MDMAIN(int, int, int, int, int, int, int, int, unsigned int) [2]
+[9]      0.3    0.18    0.00     148         CORREC(int, unsigned int) [9]
+                0.00    0.00   36252/8528163     tm_type<tm_link*, 1>::operator tm_link*() const [8]
+-----------------------------------------------
+                0.10    0.00     278/278         MDMAIN(int, int, int, int, int, int, int, int, unsigned int) [2]
+[10]     0.2    0.10    0.00     278         INTRAF(unsigned int) [10]
+                0.00    0.00   42121/8528163     tm_type<tm_link*, 1>::operator tm_link*() const [8]
+                0.00    0.00     185/410         tm_type<double, 1>::operator+=(double const&) [30]
+-----------------------------------------------
+                                                 <spontaneous>
+[11]     0.2    0.00    0.10                 main [11]
+                0.10    0.00       1/1           CNSTNT(int, double*) [12]
+                0.00    0.00       1/1           SYSCNS() [32]
+-----------------------------------------------
+                0.10    0.00       1/1           main [11]
+[12]     0.2    0.10    0.00       1         CNSTNT(int, double*) [12]
+-----------------------------------------------
+                0.04    0.00     145/145         MDMAIN(int, int, int, int, int, int, int, int, unsigned int) [2]
+[13]     0.1    0.04    0.00     145         BNDRY(unsigned int) [13]
+                0.00    0.00    7038/8528163     tm_type<tm_link*, 1>::operator tm_link*() const [8]
+-----------------------------------------------
+                0.01    0.00       1/1           thread_work(void*) [1]
+[14]     0.0    0.01    0.00       1         INITIA() [14]
+                0.00    0.00    3456/8528163     tm_type<tm_link*, 1>::operator tm_link*() const [8]
+                0.00    0.00    1024/1088        tm_type<tm_link*, 1>::operator=(tm_link* const&) [29]
+-----------------------------------------------
+                0.00    0.00      26/26          MDMAIN(int, int, int, int, int, int, int, int, unsigned int) [2]
+[15]     0.0    0.00    0.00      26         KINETI(tm_type<double, 1>*, double, double, unsigned int) [15]
+                0.00    0.00   31740/8528163     tm_type<tm_link*, 1>::operator tm_link*() const [8]
+                0.00    0.00     334/4512        tm_type<double, 1>::operator double() const [26]
+                0.00    0.00     332/1733        tm_type<double, 1>::operator=(double const&) [28]
+-----------------------------------------------
+                0.00    0.00     334/4512        KINETI(tm_type<double, 1>*, double, double, unsigned int) [15]
+                0.00    0.00     726/4512        POTENG(tm_type<double, 1>*, tm_type<double, 1>*, tm_type<double, 1>*, unsigned int) [5]
+                0.00    0.00    3452/4512        MDMAIN(int, int, int, int, int, int, int, int, unsigned int) [2]
+[26]     0.0    0.00    0.00    4512         tm_type<double, 1>::operator double() const [26]
+-----------------------------------------------
+                0.00    0.00      16/1779        thread_work(void*) [1]
+                0.00    0.00     251/1779        INTERF(int, unsigned int) [4]
+                0.00    0.00    1512/1779        MDMAIN(int, int, int, int, int, int, int, int, unsigned int) [2]
+[27]     0.0    0.00    0.00    1779         pthread_barrier(int) [27]
+-----------------------------------------------
+                0.00    0.00     332/1733        KINETI(tm_type<double, 1>*, double, double, unsigned int) [15]
+                0.00    0.00     700/1733        MDMAIN(int, int, int, int, int, int, int, int, unsigned int) [2]
+                0.00    0.00     701/1733        POTENG(tm_type<double, 1>*, tm_type<double, 1>*, tm_type<double, 1>*, unsigned int) [5]
+[28]     0.0    0.00    0.00    1733         tm_type<double, 1>::operator=(double const&) [28]
+-----------------------------------------------
+                0.00    0.00      64/1088        thread_work(void*) [1]
+                0.00    0.00    1024/1088        INITIA() [14]
+[29]     0.0    0.00    0.00    1088         tm_type<tm_link*, 1>::operator=(tm_link* const&) [29]
+-----------------------------------------------
+                0.00    0.00     185/410         INTRAF(unsigned int) [10]
+                0.00    0.00     225/410         INTERF(int, unsigned int) [4]
+[30]     0.0    0.00    0.00     410         tm_type<double, 1>::operator+=(double const&) [30]
+-----------------------------------------------
+                0.00    0.00       7/7           GlobalMemory::GlobalMemory() [33]
+[31]     0.0    0.00    0.00       7         tm_type<double, 1>::tm_type() [31]
+-----------------------------------------------
+                0.00    0.00       1/1           main [11]
+[32]     0.0    0.00    0.00       1         SYSCNS() [32]
+-----------------------------------------------
+                0.00    0.00       1/1           thread_work(void*) [1]
+[33]     0.0    0.00    0.00       1         GlobalMemory::GlobalMemory() [33]
+                0.00    0.00       7/7           tm_type<double, 1>::tm_type() [31]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+
+Index by function name
+
+   [6] UPDATE_FORCES(tm_link*, int, double*, double*, double*, double*) [4] INTERF(int, unsigned int) [33] GlobalMemory::GlobalMemory()
+  [27] pthread_barrier(int)   [10] INTRAF(unsigned int)   [29] tm_type<tm_link*, 1>::operator=(tm_link* const&)
+  [13] BNDRY(unsigned int)    [15] KINETI(tm_type<double, 1>*, double, double, unsigned int) [31] tm_type<double, 1>::tm_type()
+  [12] CNSTNT(int, double*)    [2] MDMAIN(int, int, int, int, int, int, int, int, unsigned int) [28] tm_type<double, 1>::operator=(double const&)
+   [9] CORREC(int, unsigned int) [5] POTENG(tm_type<double, 1>*, tm_type<double, 1>*, tm_type<double, 1>*, unsigned int) [30] tm_type<double, 1>::operator+=(double const&)
+   [3] CSHIFT(double*, double*, double, double, double*, double, double) [7] PREDIC(double*, int, unsigned int) [8] tm_type<tm_link*, 1>::operator tm_link*() const
+  [14] INITIA()               [32] SYSCNS()               [26] tm_type<double, 1>::operator double() const

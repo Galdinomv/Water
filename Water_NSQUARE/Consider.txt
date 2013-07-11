@@ -1,0 +1,184 @@
+Problems to consider in doing pthread parallelization:
+
+- 	Problem:
+	pthread_barrier(n): multiple barrires used in the program
+	
+	Action:
+	pthread_barrier(int) has been extended to take multiple barriers, on different
+	indexes.
+	The max number of barriers is defined in NBARRIERS (in data.h)
+	
+	Status: done
+	
+======================================================================================	
+
+- 	Problem:
+
+	Tmk_proc_id: need to pass private threadID, rather than
+  	using the default Tmk_proc_id, which will always be 0 (zero)
+  	in the pthreaded program
+
+	Action:
+	
+	
+	Status:
+	
+======================================================================================	
+- 	Problem:
+	
+	Global memory:
+	VAR = (molecule_type *) Tmk_malloc(mol_size);
+	gl = (struct GlobalMemory *) Tmk_malloc(gmem_size);
+	localVAR: look carefully into this
+	
+	Action:
+	Any write access to global memory need to be guarded by a lock (dedicated?)
+
+	1. gl-> needs to be guarded
+	working on it ...
+		- done, all references to gl->... checked, and they are all fine
+		
+	2. VAR needs to be guarded
+	working on it ...
+		- 
+		- PREDIC	?
+		- CORREC	?
+		- 
+
+	3. localVAR:	? (not sure this yet)
+		- 
+		- 
+		- 
+	
+	
+	Status:
+		working on it
+	
+======================================================================================			
+
+- 	Problem:
+
+	manually build PThread creation and joining points
+	
+	
+	Action:
+	-	create pthread_create() launch position within main()
+	-   create pthread_join() joining position within main()
+	-   create pthread wrapper function thread_work(), moving the parallel work into this function
+	-   ...
+	
+	Status:
+	-	done
+	
+======================================================================================			
+
+-	Problem:
+
+	Number of process (NPROC) is currently a pre-defined const
+	However, in the program, we want to control the number of available Procs by
+	giving it an argument inside the data file, rather than compiling the code
+	each time we need a version for a different number of CPU
+	
+	
+	Action:
+	- make NPROCS int, rather than const
+	- replace all references to Tmk_nprocs with NPROCS
+	- remove all references to Tmk_nprocs
+	-
+	
+	Status
+	- done
+
+	
+======================================================================================			
+
+-	Problem:
+	Using some compiler default auto-link options, data declared as "extern" only,
+	will have linker filled the gap of missing formal declaration
+	
+	Action:
+	- All data used within the program are not explicitly declared within the beginning
+	  section of main.c
+	
+	
+ 	Status
+	- done
+======================================================================================			
+
+-	Problem:
+	Tmk_proc_id is explicitly used within the program, everywhere
+	
+	
+	Action:
+	-	replace Tmk_proc_id with threadID, which threadID is passed through parameter
+		list
+	
+	Status: 	
+	-	done
+		-   all valid references to both Tmk_proc_id and Tmk_nproc have been replaced
+			with threadID, which is originted from thread_work()
+		-	
+======================================================================================			
+
+-	Problem:	Strange behaviors
+	
+	
+	
+	Action:
+	
+	
+ 	Status:
+
+
+======================================================================================			
+
+-	Problem:
+
+	
+	
+	Action:
+	
+	
+	Status 	
+
+
+
+
+======================================================================================			
+
+-	Problem:
+
+	
+	
+	Action:
+	
+	
+	Status 	
+
+
+
+======================================================================================			
+
+-	Problem:
+
+	
+	
+	Action:
+	
+	
+	Status 	
+
+
+
+======================================================================================			
+
+-	Problem:
+
+	
+	
+	Action:
+	
+	
+	Status 	
+
+

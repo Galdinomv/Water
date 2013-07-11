@@ -1,0 +1,6 @@
+syscons.c: In function `void SYSCNS()':
+syscons.c:68: warning: converting to `int' from `double'
+kineti.c: In function `void KINETI(int, tm_double*, double, double, unsigned 
+   int)':
+kineti.c:74: error: no match for 'operator+=' in '*(SUM + (+(dir * 8))) += S'
+make: *** [kineti.o] Error 1

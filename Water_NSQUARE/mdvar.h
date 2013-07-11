@@ -1,0 +1,7 @@
+#ifndef __WATER_MDVAR_HEADER__
+#define __WATER_MDVAR_HEADER__
+
+extern double TEMP,RHO,TSTEP,BOXL,BOXH,CUTOFF,CUT2;
+extern int    NMOL,NORDER,NATMO,NATMO3,NMOL1;
+
+#endif //__WATER_MDVAR_HEADER__

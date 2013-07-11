@@ -1,0 +1,28 @@
+================================================================================
+For water-n on Cygwin/WinXP, when NPROC >= 2, there are hidden data races and
+thus result is wrong.
+
+Figuring out where the data races are, and fix them.
+
+Note:
+	the problem is less severe on sideshow / buserror (as the number of NPROC becomes bigger),
+	but, the problem is still there, and need to be fixed
+	
+- Chuck - 2006.02.01
+
+
+
+
+================================================================================
+
+
+
+
+
+================================================================================
+
+
+
+
+================================================================================
+

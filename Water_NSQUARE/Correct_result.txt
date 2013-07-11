@@ -1,0 +1,41 @@
+=============== This is the correct result obtained on Amza's clusters, using
+				8 processors =================================================
+				
+Using 8 procs on 10 steps of 1000 mols
+
+TEMPERATURE                =   298.00 K
+DENSITY                    =  0.99800 G/C.C.
+NUMBER OF MOLECULES        =     1000
+NUMBER OF PROCESSORS       =        8
+TIME STEP                  = 1.50e-16 SEC
+ORDER USED TO SOLVE F=MA   =        6 
+NO. OF TIME STEPS          =       10 
+FREQUENCY OF DATA SAVING   =       -1 
+FREQUENCY TO WRITE RST FILE=     3000 
+SPHERICAL CUTOFF RADIUS    =  15.5319 ANGSTROM
+
+***** NEW RUN STARTING FROM REGULAR LATTICE *****
+         1        1.50976      0.00589      2.88692      4.77115
+            9.174        299.93963         -8.28629
+         2        1.53008      0.02351      2.87770      4.74061
+            9.172        301.95779         -8.44442
+         3        1.56695      0.05296      2.84449      4.70849
+            9.173        305.07182         -8.67340
+         4        1.61522      0.09437      2.78867      4.67438
+            9.173        309.02628         -8.97114
+         5        1.67494      0.14789      2.71251      4.63734
+            9.173        313.77179         -9.33506
+         6        1.74404      0.21359      2.61813      4.59690
+            9.173        319.22347         -9.76188
+         7        1.82080      0.29133      2.50756      4.55297
+            9.173        325.29628        -10.24750
+         8        1.90348      0.38069      2.38351      4.50498
+            9.173        331.90399        -10.78722
+         9        1.99054      0.48088      2.24896      4.45229
+            9.173        338.96500        -11.37577
+        10        2.08070      0.59078      2.10650      4.39468
+            9.173        346.40512        -12.00722
+
+Exited Happily with XTT 9.17266
+Elapsed time: 37.69 seconds
+[czhao@cluster010 bin.i386_linux2]$ 
