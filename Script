@@ -1,0 +1,40 @@
+/RESEARCH_2013/Repos/libtm/apps/moldyn/seq
+#Result_S=$(gprof ~/RESEARCH_2013/Repos/libtm/apps/moldyn/teste | grep [0-9] | grep -v "/" | grep -v seconds | grep -v "\[" | grep -v "NOT")
+
+         Policy_S="Sequencial"
+         Result_S=$(gprof ~/RESEARCH_2013/Repos/libtm/apps/moldyn/seq | grep [0-9] | grep -v "/" | grep -v seconds | grep -v "\[" | grep -v "NOT")
+         #Result_S=$(gprof ~/RESEARCH_2013/Repos/libtm/apps/moldyn/teste | grep [0-9] | grep -v seconds)
+
+         Exec_Time_S=$(echo "$Result_S" | awk '{print $2}' | tail -1)
+         Values_S=$(echo "$Result_S" | awk '{print $1,$3,$7}')
+
+         echo "$Policy_S" >> Excel
+         echo "$Exec_Time_S" >> Excel
+         echo "$Values_S" >> Excel
+         echo "-----" >> Excel
+
+
+
+CD="1 4 2 3"
+CR="2 1"
+
+for _CR in $CR
+do
+     for _CD in $CD
+     do
+         echo " $_CD - $_CR"
+
+         moldyn $_CD $_CR
+
+         Policy="$_CD $_CR"
+         Result=$(gprof moldyn | grep [0-9] | grep -v seconds)
+
+         Exec_Time=$(echo "$Result" | awk '{print $2}' | tail -1)
+         Values=$(echo "$Result" | awk '{print $1,$3,$4}')
+
+         echo "$Policy" >> Excel
+         echo "$Exec_Time" >> Excel
+         echo "$Values" >> Excel
+         echo "-----" >> Excel
+    done
+done
